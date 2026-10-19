@@ -76,7 +76,7 @@ body{
 /* ---------- Chương ---------- */
 .chapter{padding-block:56px 24px}
 .chapter-head{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:baseline;margin-bottom:28px}
-.chapter-head .num{font-family:var(--f-display);font-style:italic;font-size:3.4rem;line-height:1;color:var(--rose);grid-row:span 2}
+.chapter-head .num{grid-row:span 2;align-self:center;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:1.9rem;line-height:1;background:#ffe3ec;box-shadow:inset 0 0 0 2px #f7a8c2}
 .chapter-head h2{font-family:var(--f-display);font-size:clamp(1.8rem,4.2vw,2.6rem);margin:0;line-height:1.1;text-wrap:balance}
 .chapter-head p{margin:0;color:var(--ink-soft);max-width:60ch}
 .board{columns:3 260px;column-gap:26px}
@@ -111,7 +111,7 @@ body{
 .finale p{color:var(--ink-soft);margin:0 auto 1.4em;max-width:44ch}
 .love{font-family:var(--f-hand);font-size:clamp(2.4rem,8vw,4rem);color:var(--rose);margin-top:.5em;line-height:1.1}
 .btn.rose{background:var(--rose);box-shadow:0 8px 24px -10px rgba(184,50,92,.65)}
-#petals{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:30}
+#petals{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60}
 footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 40px}
 
 /* ---------- Xem ảnh lớn ---------- */
@@ -163,7 +163,36 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 
 .intro.opened .flap{transform:rotateX(180deg);z-index:1}
 .intro.opened .note{transform:translateY(-62%)}
 .intro.opened .env{cursor:default}
-@media (prefers-reduced-motion:reduce){.env .seal{animation:none}.env .note,.env .flap,.intro{transition-duration:.01s}}
+.wish{
+  position:fixed;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;
+  padding:20px max(16px, env(safe-area-inset-right, 0px)) 20px max(16px, env(safe-area-inset-left, 0px));
+  background:rgba(255,228,238,.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  opacity:0;pointer-events:none;transition:opacity .7s ease 1.5s;
+}
+.intro.opened .wish{opacity:1;pointer-events:auto}
+.wish .paper{
+  width:min(540px,100%);max-height:92vh;overflow-y:auto;text-align:left;background:#fffaf6;border-radius:14px;
+  padding:32px 28px 28px;border-top:6px solid #d6336c;box-shadow:0 20px 60px rgba(91,35,64,.25);color:#5b2340;
+  transform:translateY(30px) scale(.96);transition:transform .8s cubic-bezier(.2,.8,.2,1) 1.5s;
+}
+.intro.opened .wish .paper{transform:none}
+.wish .avatar{width:140px;height:140px;margin:0 auto 14px;border-radius:50%;padding:5px;background:conic-gradient(#ff8fb3,#d6336c,#ffc2d6,#ff8fb3);box-shadow:0 8px 24px rgba(214,51,108,.3)}
+.wish .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 30%;border:4px solid #fff;display:block}
+.wish h2{font-family:var(--f-hand);font-weight:700;font-size:2.4rem;line-height:1.1;color:#d6336c;text-align:center;margin:0}
+.wish .when{text-align:center;font-size:.8rem;letter-spacing:.2em;opacity:.6;margin:6px 0 20px}
+.wish p{font-size:1rem;line-height:1.75;margin:0 0 12px}
+.wish ul{margin:0 0 14px;padding-left:0;list-style:none;display:grid;gap:6px}
+.wish li{display:flex;gap:10px;line-height:1.6}
+.wish li::before{content:"🌸";flex:none}
+.wish .sign{text-align:right;font-family:var(--f-hand);font-size:1.7rem;color:#d6336c;margin:14px 0 0}
+.wish .go{
+  display:flex;align-items:center;gap:10px;margin:22px auto 0;border:0;border-radius:999px;padding:13px 26px;cursor:pointer;
+  font:600 1rem var(--f-body);color:#fff;background:linear-gradient(135deg,#ff5c93,#d6336c);box-shadow:0 8px 22px rgba(214,51,108,.35);
+  animation:go 1.6s ease-in-out infinite;
+}
+.wish .go:focus-visible{outline:3px solid #5b2340;outline-offset:3px}
+@keyframes go{50%{transform:scale(1.06)}}
+@media (prefers-reduced-motion:reduce){.env .seal,.wish .go{animation:none}.env .note,.env .flap,.intro,.wish,.wish .paper{transition-duration:.01s;transition-delay:0s}}
 
 @media (max-width:760px){
   .cover{padding-block:32px 16px}
@@ -171,7 +200,7 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 
   .hero-frame{max-width:300px}
   .stamp{left:-12px;width:88px;height:88px;font-size:1.05rem}
   .stamp b{font-size:1.4rem}
-  .chapter-head .num{font-size:2.6rem}
+  .chapter-head .num{width:52px;height:52px;font-size:1.5rem}
   .board{column-gap:16px}
   .letter p{font-size:1rem}
 }
@@ -192,6 +221,24 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 
     <span class="flap"></span>
     <span class="seal" aria-hidden="true">♥</span>
   </button>
+  <div class="wish" id="wish">
+    <div class="paper">
+      <div class="avatar"><img src="img/remini.jpg" alt="Ảnh bà đang mỉm cười"></div>
+      <h2>Chúc mừng 20/10, Bà yêu!</h2>
+      <div class="when">20 · 10 · 2026</div>
+      <p>Bà ơi, hôm nay là Ngày Phụ nữ Việt Nam. Với cháu, bà là người phụ nữ tuyệt vời nhất.</p>
+      <p>Cháu chúc bà:</p>
+      <ul>
+        <li>Luôn mạnh khoẻ, ăn ngon, ngủ ngon.</li>
+        <li>Ngày nào cũng vui, cười thật tươi như trong những tấm ảnh này.</li>
+        <li>Còn đi thêm thật nhiều chuyến đi cùng cả nhà.</li>
+        <li>Lúc nào cũng được con cháu yêu thương, chiều chuộng.</li>
+      </ul>
+      <p>Cháu đã gom lại những tấm ảnh đẹp nhất của bà. Bà bấm nút bên dưới để xem nhé!</p>
+      <p class="sign">Cháu của bà</p>
+      <button type="button" class="go" id="go"><span aria-hidden="true">🎁</span> Xem album của bà</button>
+    </div>
+  </div>
 </div>
 
 <header class="cover">
@@ -217,7 +264,7 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 
   <section class="chapter" id="chuong-1">
     <div class="wrap">
       <div class="chapter-head">
-        <span class="num">i.</span>
+        <span class="num" aria-hidden="true">🏖️</span>
         <h2>Bà của những chuyến đi</h2>
         <p>Biển, gió, nắng và những bộ váy hoa. Ở đâu có bà là ở đó có ảnh đẹp.</p>
       </div>
@@ -240,7 +287,7 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 
   <section class="chapter" id="chuong-2">
     <div class="wrap">
       <div class="chapter-head">
-        <span class="num">ii.</span>
+        <span class="num" aria-hidden="true">👵</span>
         <h2>Bà của các cháu</h2>
         <p>Bế cháu ngủ, chỉ cháu hái nho, đắp mặt nạ cùng cháu. Bà lúc nào cũng có thời gian cho các cháu.</p>
       </div>
@@ -261,7 +308,7 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 
   <section class="chapter" id="chuong-3">
     <div class="wrap">
       <div class="chapter-head">
-        <span class="num">iii.</span>
+        <span class="num" aria-hidden="true">💐</span>
         <h2>Những ngày đáng nhớ</h2>
         <p>Ngày tốt nghiệp, những bữa tiệc, những lần bà được chiều. Cháu muốn giữ hết lại đây.</p>
       </div>
@@ -341,10 +388,12 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 
   document.getElementById('env').addEventListener('click',function(){
     if(intro.classList.contains('opened'))return;
     intro.classList.add('opened');
-    setTimeout(function(){
-      intro.classList.add('gone');document.documentElement.style.overflow='';window.scrollTo(0,0);
-      if(!reduce)burst(90);
-    },reduce?200:2000);
+    if(!reduce)setTimeout(function(){burst(60);},1400);
+    setTimeout(function(){document.getElementById('go').focus({preventScroll:true});},reduce?50:2200);
+  });
+  document.getElementById('go').addEventListener('click',function(){
+    intro.classList.add('gone');document.documentElement.style.overflow='';window.scrollTo(0,0);
+    if(!reduce)burst(120);
   });
 })();
 </script>
