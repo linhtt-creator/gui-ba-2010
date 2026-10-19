@@ -126,6 +126,45 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 
 .lb .prev{left:max(12px, env(safe-area-inset-left, 0px));top:50%;transform:translateY(-50%)}
 .lb .next{right:max(12px, env(safe-area-inset-right, 0px));top:50%;transform:translateY(-50%)}
 
+/* ---------- Phong thư mở đầu ---------- */
+.intro{
+  --w:min(420px, 86vw);
+  position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:24px max(16px, env(safe-area-inset-right, 0px)) 24px max(16px, env(safe-area-inset-left, 0px));
+  background:radial-gradient(circle at 30% 20%, #fff1f5, #ffd9e6);transition:opacity .8s ease, visibility 0s .8s;
+}
+.intro.gone{opacity:0;visibility:hidden;pointer-events:none}
+.intro h1{font-family:var(--f-hand);font-weight:700;font-size:clamp(2.4rem, 8.5vw, 4.6rem);line-height:1.1;color:#d6336c;text-shadow:0 2px 0 #fff;margin:0 0 .25em;text-wrap:balance}
+.intro .to{font-size:1.25rem;margin:0 0 4px;color:#5b2340}
+.intro .to b{color:#d6336c}
+.intro .hint{font-size:.95rem;color:#5b2340;opacity:.75;margin:0 0 44px;transition:opacity .4s}
+.intro.opened .hint,.intro.opened .to{opacity:0}
+.env{position:relative;width:var(--w);aspect-ratio:3/2;cursor:pointer;border:0;padding:0;background:none;display:block}
+.env:focus-visible{outline:3px solid #d6336c;outline-offset:8px;border-radius:10px}
+.env .back{position:absolute;inset:0;background:#ec7fa5;border-radius:10px}
+.env .note{
+  position:absolute;left:6%;right:6%;top:8%;height:84%;z-index:2;background:#fffaf6;border-radius:8px;
+  box-shadow:0 4px 18px rgba(91,35,64,.18);display:flex;justify-content:center;padding-top:16px;
+  font-family:var(--f-hand);font-weight:700;font-size:1.7rem;color:#d6336c;
+  transition:transform 1s cubic-bezier(.2,.8,.2,1) .55s;
+}
+.env .side-l,.env .side-r,.env .bottom,.env .flap{position:absolute;width:0;height:0;pointer-events:none}
+.env .side-l{left:0;bottom:0;z-index:3;border-left:calc(var(--w) / 2) solid #f7a8c2;border-top:calc(var(--w) / 3) solid transparent;border-bottom:calc(var(--w) / 3) solid #f7a8c2}
+.env .side-r{right:0;bottom:0;z-index:3;border-right:calc(var(--w) / 2) solid #fcc8d9;border-top:calc(var(--w) / 3) solid transparent;border-bottom:calc(var(--w) / 3) solid #fcc8d9}
+.env .bottom{left:0;bottom:0;z-index:3;border-left:calc(var(--w) / 2) solid transparent;border-right:calc(var(--w) / 2) solid transparent;border-bottom:calc(var(--w) / 3.4) solid #f493b4}
+.env .flap{top:0;left:0;z-index:4;border-left:calc(var(--w) / 2) solid transparent;border-right:calc(var(--w) / 2) solid transparent;border-top:calc(var(--w) / 3 + 6px) solid #e9789f;transform-origin:top;transition:transform .6s ease, z-index 0s .3s}
+.env .seal{
+  position:absolute;left:50%;top:52%;z-index:5;width:64px;height:64px;border-radius:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 35% 30%, #ff6b97, #c2185b);box-shadow:0 3px 8px rgba(0,0,0,.25);
+  display:grid;place-items:center;color:#fff;font-size:1.6rem;transition:opacity .3s, transform .3s;animation:seal 1.8s ease-in-out infinite;
+}
+@keyframes seal{50%{transform:translate(-50%,-50%) scale(1.08)}}
+.intro.opened .seal{opacity:0;transform:translate(-50%,-50%) scale(.5);animation:none}
+.intro.opened .flap{transform:rotateX(180deg);z-index:1}
+.intro.opened .note{transform:translateY(-62%)}
+.intro.opened .env{cursor:default}
+@media (prefers-reduced-motion:reduce){.env .seal{animation:none}.env .note,.env .flap,.intro{transition-duration:.01s}}
+
 @media (max-width:760px){
   .cover{padding-block:32px 16px}
   .cover .wrap{grid-template-columns:1fr;gap:40px}
@@ -141,6 +180,19 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 
 <body>
 
 <canvas id="petals" aria-hidden="true"></canvas>
+
+<div class="intro" id="intro">
+  <h1>Happy Vietnamese Women's Day</h1>
+  <p class="to">Gửi <b>Bà yêu</b> của cháu</p>
+  <p class="hint">Bà bấm vào phong thư để mở nhé</p>
+  <button type="button" class="env" id="env" aria-label="Mở phong thư">
+    <span class="back"></span>
+    <span class="note">Cháu yêu bà ♥</span>
+    <span class="side-l"></span><span class="side-r"></span><span class="bottom"></span>
+    <span class="flap"></span>
+    <span class="seal" aria-hidden="true">♥</span>
+  </button>
+</div>
 
 <header class="cover">
   <div class="wrap">
@@ -281,6 +333,18 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 
   function petal(p){ctx.save();ctx.translate(p.x*dpr,p.y*dpr);ctx.rotate(p.a);ctx.fillStyle=p.c;ctx.globalAlpha=.9;ctx.beginPath();var r=p.r*dpr;ctx.moveTo(0,-r);ctx.bezierCurveTo(r*.9,-r*.6,r*.7,r*.7,0,r);ctx.bezierCurveTo(-r*.7,r*.7,-r*.9,-r*.6,0,-r);ctx.fill();ctx.restore();}
   function tick(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(function(p){p.sw+=.03;p.x+=p.vx+Math.sin(p.sw)*.6;p.y+=p.vy;p.a+=p.va;petal(p);});ps=ps.filter(function(p){return p.y<innerHeight+30;});if(ps.length)requestAnimationFrame(tick);else{running=false;ctx.clearRect(0,0,cv.width,cv.height);}}
   document.getElementById('flowers').addEventListener('click',function(){document.getElementById('love').hidden=false;if(!reduce)burst(140);});
+
+  // Mở phong thư
+  var intro=document.getElementById('intro');
+  document.documentElement.style.overflow='hidden';
+  document.getElementById('env').addEventListener('click',function(){
+    if(intro.classList.contains('opened'))return;
+    intro.classList.add('opened');
+    setTimeout(function(){
+      intro.classList.add('gone');document.documentElement.style.overflow='';window.scrollTo(0,0);
+      if(!reduce)burst(90);
+    },reduce?200:2000);
+  });
 })();
 </script>
 
