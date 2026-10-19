@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:title" content="Gửi Bà 20/10">
+<meta property="og:description" content="Album ảnh và lá thư cháu tặng bà nhân Ngày Phụ nữ Việt Nam.">
+<meta property="og:image" content="https://linhtt-creator.github.io/gui-ba-2010/img/img_7424.jpg">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Gửi Bà 20/10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Be+Vietnam+Pro:wght@400;500;600&family=Dancing+Script:wght@500;700&display=swap">
+<style>
+/* Layout: một cuốn album cuộn dọc — trang bìa, ba chương ảnh polaroid, lá thư, bó hoa cuối trang. Một bảng màu sáng cố định như tấm thiệp giấy. */
+:root{
+  --paper:#fbf2f1;      /* giấy hồng phấn */
+  --paper-2:#f4e3e2;
+  --card:#fffdfb;
+  --ink:#2b2023;
+  --ink-soft:#6c5a5e;
+  --jade:#0e6a64;       /* xanh ngọc áo dài của bà */
+  --rose:#b8325c;
+  --gold:#b88a3a;
+  --line:#e6cfcf;
+  --f-display:"Playfair Display", Georgia, "Times New Roman", serif;
+  --f-body:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-hand:"Dancing Script", "Segoe Script", "Brush Script MT", cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;
+  background-image:radial-gradient(circle at 12% 8%, #f7dfe3 0, transparent 38%),radial-gradient(circle at 92% 30%, #e3efe9 0, transparent 30%);
+  background-attachment:fixed;
+}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+
+/* ---------- Bìa ---------- */
+.cover{padding-block:56px 40px}
+.cover .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--jade);font-weight:600}
+.cover h1{font-family:var(--f-display);font-weight:700;font-size:clamp(3.2rem, 9vw, 6.4rem);line-height:.95;margin:.25em 0 .2em;text-wrap:balance}
+.cover h1 em{font-style:italic;color:var(--rose)}
+.date{font-family:var(--f-display);font-style:italic;font-size:1.35rem;color:var(--gold);display:flex;align-items:center;gap:12px}
+.date::before{content:"";width:40px;height:1px;background:var(--gold)}
+.lede{max-width:34ch;font-size:1.08rem;color:var(--ink-soft);margin:1.2em 0 1.6em}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;font:600 1rem var(--f-body);
+  background:var(--jade);color:#fff;padding:14px 24px;border-radius:999px;text-decoration:none;
+  box-shadow:0 8px 24px -10px rgba(14,106,100,.6);transition:transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -10px rgba(14,106,100,.7)}
+.btn:focus-visible,.polaroid button:focus-visible,.lb button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.hero-frame{position:relative;justify-self:center;max-width:380px;width:100%}
+.hero-frame .polaroid{transform:rotate(2.5deg)}
+.hero-frame::before{
+  content:"";position:absolute;inset:-18px -14px 26px 22px;border:1.5px solid var(--jade);border-radius:4px;transform:rotate(-3deg);opacity:.5;
+}
+.stamp{
+  position:absolute;left:-28px;bottom:36px;width:104px;height:104px;border-radius:50%;
+  background:var(--rose);color:#fff;display:grid;place-items:center;text-align:center;
+  font-family:var(--f-hand);font-size:1.25rem;line-height:1.05;transform:rotate(-12deg);
+  box-shadow:0 10px 24px -10px rgba(184,50,92,.7);
+}
+.stamp b{display:block;font-family:var(--f-display);font-size:1.7rem;font-style:italic}
+
+/* ---------- Polaroid ---------- */
+.polaroid{background:var(--card);padding:12px 12px 14px;border-radius:3px;box-shadow:0 1px 2px rgba(43,32,35,.08),0 14px 30px -18px rgba(43,32,35,.45);margin:0}
+.polaroid button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.polaroid img{display:block;width:100%;height:auto;max-width:100%;border-radius:1px;background:var(--paper-2)}
+.polaroid figcaption{font-family:var(--f-hand);font-size:1.3rem;line-height:1.25;color:var(--ink);padding:10px 4px 0;text-align:center}
+
+/* ---------- Chương ---------- */
+.chapter{padding-block:56px 24px}
+.chapter-head{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:baseline;margin-bottom:28px}
+.chapter-head .num{font-family:var(--f-display);font-style:italic;font-size:3.4rem;line-height:1;color:var(--rose);grid-row:span 2}
+.chapter-head h2{font-family:var(--f-display);font-size:clamp(1.8rem,4.2vw,2.6rem);margin:0;line-height:1.1;text-wrap:balance}
+.chapter-head p{margin:0;color:var(--ink-soft);max-width:60ch}
+.board{columns:3 260px;column-gap:26px}
+.board .polaroid{break-inside:avoid;margin-bottom:28px;transition:transform .25s ease}
+.board .polaroid:nth-child(4n+1){transform:rotate(-1.6deg)}
+.board .polaroid:nth-child(4n+2){transform:rotate(1.2deg)}
+.board .polaroid:nth-child(4n+3){transform:rotate(-.6deg)}
+.board .polaroid:nth-child(4n){transform:rotate(1.8deg)}
+.board .polaroid:hover{transform:rotate(0) scale(1.02)}
+.board .polaroid.small{max-width:240px;margin-inline:auto}
+@media (prefers-reduced-motion:reduce){.board .polaroid{transition:none}}
+
+.divider{display:flex;justify-content:center;padding-block:8px}
+.divider svg{width:120px;height:24px}
+
+/* ---------- Thư ---------- */
+.letter-sec{padding-block:64px}
+.letter{
+  max-width:680px;margin:0 auto;background:var(--card);padding:clamp(28px,6vw,56px);border-radius:4px;position:relative;
+  box-shadow:0 30px 60px -36px rgba(43,32,35,.5);
+  background-image:repeating-linear-gradient(to bottom, transparent 0, transparent 33px, #f1e2e2 33px, #f1e2e2 34px);
+  background-position:0 22px;
+}
+.letter::before{content:"";position:absolute;top:-10px;left:50%;width:120px;height:26px;transform:translateX(-50%) rotate(-2deg);background:rgba(14,106,100,.18);border-radius:2px}
+.letter h2{font-family:var(--f-hand);font-weight:700;font-size:2.4rem;color:var(--rose);margin:0 0 .4em;line-height:1.1}
+.letter p{font-size:1.05rem;line-height:34px;margin:0 0 34px;max-width:62ch}
+.letter .sign{font-family:var(--f-hand);font-size:1.9rem;color:var(--jade);text-align:right;margin:0;line-height:1.2}
+
+/* ---------- Bó hoa ---------- */
+.finale{padding-block:24px 96px;text-align:center}
+.finale h2{font-family:var(--f-display);font-size:clamp(1.8rem,5vw,2.8rem);margin:0 0 .3em;text-wrap:balance}
+.finale p{color:var(--ink-soft);margin:0 auto 1.4em;max-width:44ch}
+.love{font-family:var(--f-hand);font-size:clamp(2.4rem,8vw,4rem);color:var(--rose);margin-top:.5em;line-height:1.1}
+.btn.rose{background:var(--rose);box-shadow:0 8px 24px -10px rgba(184,50,92,.65)}
+#petals{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:30}
+footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding-block:0 40px}
+
+/* ---------- Xem ảnh lớn ---------- */
+.lb{position:fixed;inset:0;z-index:40;background:rgba(30,20,24,.9);display:grid;place-items:center;
+  padding:max(20px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(20px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px))}
+.lb figure{margin:0;display:grid;gap:12px;justify-items:center;max-width:min(92vw,900px)}
+.lb img{max-height:78vh;max-width:100%;width:auto;border:10px solid var(--card);border-bottom-width:12px;border-radius:2px}
+.lb figcaption{font-family:var(--f-hand);font-size:1.6rem;color:#fff;text-align:center}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.14);color:#fff;width:48px;height:48px;border-radius:50%;font-size:1.5rem;cursor:pointer;display:grid;place-items:center}
+.lb button:hover{background:rgba(255,255,255,.26)}
+.lb .x{top:max(16px, calc(env(safe-area-inset-top, 0px) + 8px));right:max(16px, calc(env(safe-area-inset-right, 0px) + 8px))}
+.lb .prev{left:max(12px, env(safe-area-inset-left, 0px));top:50%;transform:translateY(-50%)}
+.lb .next{right:max(12px, env(safe-area-inset-right, 0px));top:50%;transform:translateY(-50%)}
+
+@media (max-width:760px){
+  .cover{padding-block:32px 16px}
+  .cover .wrap{grid-template-columns:1fr;gap:40px}
+  .hero-frame{max-width:300px}
+  .stamp{left:-12px;width:88px;height:88px;font-size:1.05rem}
+  .stamp b{font-size:1.4rem}
+  .chapter-head .num{font-size:2.6rem}
+  .board{column-gap:16px}
+  .letter p{font-size:1rem}
+}
+</style>
+</head>
+<body>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<header class="cover">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Ngày Phụ nữ Việt Nam</div>
+      <h1>Gửi <em>Bà</em><br>yêu của cháu</h1>
+      <div class="date">20 · 10 · 2026</div>
+      <p class="lede">Cháu gom lại những tấm ảnh bà cười đẹp nhất trong mấy năm qua. Bà cuộn xuống từ từ xem nhé, cuối trang cháu có viết thư cho bà.</p>
+      <a class="btn" href="#chuong-1">Bà xem album nhé <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="hero-frame">
+      <figure class="polaroid">
+        <img src="img/img_7424.jpg" alt="Bà mặc áo dài xanh ngọc, ngồi bên bồn hoa" width="652" height="869">
+        <figcaption>Bà đẹp nhất là khi mặc áo dài</figcaption>
+      </figure>
+      <div class="stamp"><span>Mừng<b>20/10</b></span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="chapter" id="chuong-1">
+    <div class="wrap">
+      <div class="chapter-head">
+        <span class="num">i.</span>
+        <h2>Bà của những chuyến đi</h2>
+        <p>Biển, gió, nắng và những bộ váy hoa. Ở đâu có bà là ở đó có ảnh đẹp.</p>
+      </div>
+      <div class="board">
+        <figure class="polaroid"><button type="button"><img src="img/img_0456.jpg" alt="Bà đứng bên lan can đỏ, phía sau là biển và núi" width="1000" height="750" loading="lazy"></button><figcaption>Gió biển, lan can đỏ, và bà</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_7420.jpg" alt="Bà mặc áo dài xanh ngọc đứng trước con thuyền gỗ" width="652" height="869" loading="lazy"></button><figcaption>Áo dài xanh ngọc bên bến thuyền</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_2761.jpg" alt="Bà giơ tay chữ V bên bờ biển có hàng dừa" width="652" height="869" loading="lazy"></button><figcaption>Bà giơ chữ V như thiếu nữ mười tám</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_7783.jpg" alt="Bà đứng trước biển xanh trong, có tàu thuyền phía xa" width="652" height="869" loading="lazy"></button><figcaption>Nước trong veo, nắng vàng, bà đứng giữa</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_7015.jpg" alt="Bà ngồi ghế bên hồ bơi của khu nghỉ dưỡng" width="652" height="869" loading="lazy"></button><figcaption>Nghỉ ngơi một chút, bà nhé</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_6995.jpg" alt="Bà đứng cạnh chậu hoa giấy trước toà nhà trắng" width="652" height="869" loading="lazy"></button><figcaption>Đứng cạnh hoa giấy cũng xinh</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_0415.jpg" alt="Hai người phụ nữ đứng xem nhạc nước buổi tối" width="1000" height="750" loading="lazy"></button><figcaption>Tối xem nhạc nước</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_7008.jpg" alt="Bà đứng giữa vườn cây xanh của khu nghỉ dưỡng" width="652" height="869" loading="lazy"></button><figcaption>Giữa một khu vườn xanh mát</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_0408.jpg" alt="Cả nhà đứng trước đài phun nước nhiều màu" width="652" height="869" loading="lazy"></button><figcaption>Đi chơi là phải đi cả nhà</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><svg viewBox="0 0 120 24"><path d="M0 12h44M76 12h44" stroke="#b88a3a" stroke-width="1" fill="none"/><path d="M60 3c4 5 4 13 0 18-4-5-4-13 0-18zM51 12c5-4 13-4 18 0-5 4-13 4-18 0z" fill="#b8325c" opacity=".8"/></svg></div>
+
+  <section class="chapter" id="chuong-2">
+    <div class="wrap">
+      <div class="chapter-head">
+        <span class="num">ii.</span>
+        <h2>Bà của các cháu</h2>
+        <p>Bế cháu ngủ, chỉ cháu hái nho, đắp mặt nạ cùng cháu. Bà lúc nào cũng có thời gian cho các cháu.</p>
+      </div>
+      <div class="board">
+        <figure class="polaroid"><button type="button"><img src="img/img_3030.jpg" alt="Bà bế cháu, chỉ tay lên giàn nho chín" width="652" height="869" loading="lazy"></button><figcaption>Bà chỉ cho cháu chùm nho chín</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_6089.jpg" alt="Bà bế cháu ngủ trên vai" width="652" height="869" loading="lazy"></button><figcaption>Cháu ngủ say trên vai bà</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_7079.jpg" alt="Bà và cháu cùng đắp mặt nạ, ngồi trên sofa" width="652" height="869" loading="lazy"></button><figcaption>Hai bà cháu cùng đắp mặt nạ</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_6103.jpg" alt="Cả nhà ngồi quây quần bên bánh sinh nhật" width="1000" height="750" loading="lazy"></button><figcaption>Cả nhà quây quần thổi nến</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_2509.jpg" alt="Bà và cháu đội mũ sinh nhật bên chiếc bánh có pháo que" width="540" height="540" loading="lazy"></button><figcaption>Sinh nhật nào cũng có bà</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_6372.jpg" alt="Bà bế em bé, ngồi cạnh một người đàn ông" width="1000" height="750" loading="lazy"></button><figcaption>Những ngày đầu đời của cháu</figcaption></figure>
+        <figure class="polaroid small"><button type="button"><img src="img/img_4353.jpg" alt="Bà và cháu đứng cạnh cây quất ngày Tết" width="206" height="275" loading="lazy"></button><figcaption>Đón Tết cùng cháu</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><svg viewBox="0 0 120 24"><path d="M0 12h44M76 12h44" stroke="#b88a3a" stroke-width="1" fill="none"/><path d="M60 3c4 5 4 13 0 18-4-5-4-13 0-18zM51 12c5-4 13-4 18 0-5 4-13 4-18 0z" fill="#b8325c" opacity=".8"/></svg></div>
+
+  <section class="chapter" id="chuong-3">
+    <div class="wrap">
+      <div class="chapter-head">
+        <span class="num">iii.</span>
+        <h2>Những ngày đáng nhớ</h2>
+        <p>Ngày tốt nghiệp, những bữa tiệc, những lần bà được chiều. Cháu muốn giữ hết lại đây.</p>
+      </div>
+      <div class="board">
+        <figure class="polaroid"><button type="button"><img src="img/img_3043.jpg" alt="Bà đứng cạnh chàng trai mặc áo tốt nghiệp ôm bó hoa" width="579" height="869" loading="lazy"></button><figcaption>Ngày tốt nghiệp, bà cười tươi nhất</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_3037.jpg" alt="Cả gia đình chụp ảnh ngày tốt nghiệp dưới hàng cây" width="579" height="869" loading="lazy"></button><figcaption>Đông đủ cả nhà</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_3040.jpg" alt="Ba người đứng chụp ảnh ngày tốt nghiệp trên bãi cỏ" width="1000" height="666" loading="lazy"></button><figcaption>Một ngày rất tự hào</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/img_9221.jpg" alt="Bà mặc áo dài hồng ngồi trong một bữa tiệc" width="652" height="869" loading="lazy"></button><figcaption>Năm 2018, áo dài hồng</figcaption></figure>
+        <figure class="polaroid"><button type="button"><img src="img/remini.jpg" alt="Bà mỉm cười trong lúc được làm tóc" width="652" height="869" loading="lazy"></button><figcaption>Hôm nay bà được chiều</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter-sec" id="thu">
+    <div class="wrap">
+      <article class="letter">
+        <h2>Bà ơi,</h2>
+        <p>Hôm nay là 20/10. Cháu không biết mua quà gì cho vừa ý bà, nên cháu gom lại những tấm ảnh bà cười trong mấy năm qua, làm thành một cuốn album nhỏ.</p>
+        <p>Có tấm bà đứng trước biển, tóc bay trong gió. Có tấm bà bế cháu ngủ, tay vẫn vỗ nhè nhẹ. Có tấm bà đứng cạnh cả nhà trong ngày tốt nghiệp, cười còn tươi hơn người ôm hoa.</p>
+        <p>Cháu biết bà đã lo cho cả nhà nhiều thế nào. Cháu ít khi nói ra, nên hôm nay cháu viết vào đây: cháu cảm ơn bà, và cháu thương bà nhiều lắm.</p>
+        <p>Chúc bà luôn khoẻ, luôn vui, và còn đi thêm thật nhiều chuyến đi nữa. Năm sau cháu lại gom thêm ảnh mới cho bà nhé.</p>
+        <p class="sign">Cháu của bà</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="finale">
+    <div class="wrap">
+      <h2>Một bó hoa cho bà</h2>
+      <p>Bà bấm vào nút bên dưới để nhận hoa nhé.</p>
+      <button class="btn rose" id="flowers" type="button">Nhận hoa của cháu <span aria-hidden="true">🌸</span></button>
+      <div class="love" id="love" hidden>Cháu yêu bà!</div>
+    </div>
+  </section>
+</main>
+<footer>20/10/2026 · Cháu làm tặng bà</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Xem ảnh lớn">
+  <button type="button" class="x" id="lbClose" aria-label="Đóng">×</button>
+  <button type="button" class="prev" id="lbPrev" aria-label="Ảnh trước">‹</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button type="button" class="next" id="lbNext" aria-label="Ảnh sau">›</button>
+</div>
+
+<script>
+(function(){
+  // Xem ảnh lớn
+  var items=[].slice.call(document.querySelectorAll('.board .polaroid'));
+  var lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cap=document.getElementById('lbCap'),cur=0,lastFocus=null;
+  function show(i){cur=(i+items.length)%items.length;var f=items[cur],im=f.querySelector('img');img.src=im.src;img.alt=im.alt;cap.textContent=f.querySelector('figcaption').textContent;}
+  function open(i){lastFocus=document.activeElement;show(i);lb.hidden=false;document.getElementById('lbClose').focus();}
+  function close(){lb.hidden=true;if(lastFocus)lastFocus.focus();}
+  items.forEach(function(f,i){f.querySelector('button').addEventListener('click',function(){open(i);});});
+  document.getElementById('lbClose').onclick=close;
+  document.getElementById('lbPrev').onclick=function(){show(cur-1);};
+  document.getElementById('lbNext').onclick=function(){show(cur+1);};
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+  var sx=null;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));sx=null;});
+
+  // Mưa cánh hoa
+  var cv=document.getElementById('petals'),ctx=cv.getContext('2d'),ps=[],running=false,dpr=Math.min(window.devicePixelRatio||1,2);
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var colors=['#e7799a','#f3a6bb','#b8325c','#f7c6d2','#e9b04f'];
+  function size(){cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;}
+  size();addEventListener('resize',size);
+  function burst(n){for(var i=0;i<n;i++)ps.push({x:Math.random()*innerWidth,y:-20-Math.random()*innerHeight*.6,r:6+Math.random()*8,vy:1+Math.random()*1.8,vx:-.6+Math.random()*1.2,a:Math.random()*6.28,va:-.04+Math.random()*.08,sw:Math.random()*6.28,c:colors[i%colors.length]});if(!running){running=true;requestAnimationFrame(tick);}}
+  function petal(p){ctx.save();ctx.translate(p.x*dpr,p.y*dpr);ctx.rotate(p.a);ctx.fillStyle=p.c;ctx.globalAlpha=.9;ctx.beginPath();var r=p.r*dpr;ctx.moveTo(0,-r);ctx.bezierCurveTo(r*.9,-r*.6,r*.7,r*.7,0,r);ctx.bezierCurveTo(-r*.7,r*.7,-r*.9,-r*.6,0,-r);ctx.fill();ctx.restore();}
+  function tick(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(function(p){p.sw+=.03;p.x+=p.vx+Math.sin(p.sw)*.6;p.y+=p.vy;p.a+=p.va;petal(p);});ps=ps.filter(function(p){return p.y<innerHeight+30;});if(ps.length)requestAnimationFrame(tick);else{running=false;ctx.clearRect(0,0,cv.width,cv.height);}}
+  document.getElementById('flowers').addEventListener('click',function(){document.getElementById('love').hidden=false;if(!reduce)burst(140);});
+})();
+</script>
+
+</body>
+</html>
